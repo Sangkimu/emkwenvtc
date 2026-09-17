@@ -1744,6 +1744,10 @@ p {
 .footer-about {
 	padding-right: 50px;
 }
+.footer-about .logo img {
+    width: 90px;
+    height: auto;
+}
 .footer-about p{
     color: #fff;
     padding-top: 15px;
