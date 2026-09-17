@@ -456,7 +456,7 @@ p {
 
 .header-contact ul li img{}
 .header-contact ul li span {
-	color: #dee2e6;
+    color: #092e56;
 	font-size: 15px;
 	font-weight: 400;
 	margin-left: 10px;
@@ -464,7 +464,7 @@ p {
 
 .header-opening-time{}
 .header-opening-time p {
-	color: #dee2e6;
+    color: #092e56;
 	font-size: 15px;
 	font-weight: 400;
 }
