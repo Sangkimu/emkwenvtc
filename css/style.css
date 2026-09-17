@@ -152,7 +152,7 @@ p {
     font-weight: 700;
 	line-height: 50px;
 	border-radius: 5px;
-    color: #8fd3ff;
+    color: #092e56;
     cursor: pointer;
     position: relative;
     overflow: hidden;
@@ -162,7 +162,7 @@ p {
     background-color: #ffc600;
 }
 .main-btn:hover{
-    color: #ffc600;
+    color: #092e56;
     border-color: #8fd3ff;
     background-color: #8fd3ff;
 }
