@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Emkwen Vocational Training Centre - Admission Forms</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background: #f9f9f9;
+    }
+    h1 {
+      color: #8fd3ff;
+    }
+    #courseSearch {
+      width: 100%;
+      max-width: 400px;
+      padding: 10px;
+      font-size: 16px;
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+    ul#admissionList {
+      list-style: none;
+      padding-left: 0;
+      max-width: 600px;
+    }
+    ul#admissionList li {
+      background: white;
+      margin-bottom: 12px;
+      padding: 15px;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+    }
+    ul#admissionList li a.download-link {
+      font-weight: bold;
+      color: #007bff;
+      text-decoration: none;
+    }
+    ul#admissionList li a.download-link:hover {
+      text-decoration: underline;
+    }
+    .course-name {
+      font-style: italic;
+      color: #555;
+      margin-top: 5px;
+    }
+    #searchCount {
+      margin-bottom: 15px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <h1>Admission Forms</h1>
+  <input
+    type="text"
+    id="courseSearch"
+    placeholder="Search admission forms by course name..."
+    autocomplete="off"
+  />
+  <div id="searchCount">Loading admission forms...</div>
+  <ul id="admissionList"></ul>
+
+  <script>
+    async function fetchAdmissionForms(course = '') {
+      try {
+        const response = await fetch('/api/admission-forms?course=' + encodeURIComponent(course));
+        if (!response.ok) throw new Error('Network response was not ok');
+        const forms = await response.json();
+
+        const admissionList = document.getElementById('admissionList');
+        admissionList.innerHTML = '';
+
+        if (forms.length === 0) {
+          admissionList.innerHTML = '<li>No admission forms found.</li>';
+        } else {
+          forms.forEach(form => {
+            const li = document.createElement('li');
+            li.innerHTML = `
+              <a href="/admission_pdfs/${form.filename}" download class="download-link">${form.course} - ${form.filename}</a>
+              <div class="course-name">Course: ${form.course}</div>
+            `;
+            admissionList.appendChild(li);
+          });
+        }
+
+        document.getElementById('searchCount').textContent = `Showing ${forms.length} admission form(s)${course ? ' for "' + course + '"' : ''}`;
+      } catch (error) {
+        document.getElementById('searchCount').textContent = 'Error loading admission forms.';
+        console.error('Fetch error:', error);
+      }
+    }
+
+    const searchInput = document.getElementById('courseSearch');
+    searchInput.addEventListener('input', () => {
+      fetchAdmissionForms(searchInput.value.trim());
+    });
+
+    // Initial load
+    fetchAdmissionForms();
+  </script>
+</body>
+</html>
