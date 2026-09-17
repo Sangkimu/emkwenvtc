@@ -454,7 +454,9 @@ p {
     margin-right: 0;
 }
 
-.header-contact ul li img{}
+.header-contact ul li img{
+    filter: brightness(0) saturate(100%) invert(14%) sepia(45%) saturate(1812%) hue-rotate(177deg) brightness(91%) contrast(94%);
+}
 .header-contact ul li span {
     color: #092e56;
 	font-size: 15px;
