@@ -65,33 +65,46 @@
   <ul id="admissionList"></ul>
 
   <script>
-    async function fetchAdmissionForms(course = '') {
-      try {
-        const response = await fetch('/api/admission-forms?course=' + encodeURIComponent(course));
-        if (!response.ok) throw new Error('Network response was not ok');
-        const forms = await response.json();
+    const admissionForms = [
+      { filename: 'ICT ADMISSION FORM.pdf', course: 'ICT / Computer Packages' },
+      { filename: 'I.C.T DEPARTMENT (1).pdf', course: 'ICT / Computer Packages' },
+      { filename: 'ELECTRICAL INSTALLATION ADMISSION FORM (1) (7).pdf', course: 'Electrical Installation' },
+      { filename: 'MASONRY_ADMISSION_FORM_(1)[1] (1).pdf', course: 'Masonry' },
+      { filename: 'CARPENTRY&J DEPARTMENT.pdf', course: 'Carpentry and Joinery' },
+      { filename: 'm.v.m adm form (2).pdf', course: 'Motor Vehicle Mechanics' },
+      { filename: 'FOOD & BEVERAGE (2).pdf', course: 'Food and Beverage' },
+      { filename: 'KNITTING COURSE (2).pdf', course: 'Knitting' }
+    ];
 
-        const admissionList = document.getElementById('admissionList');
-        admissionList.innerHTML = '';
+    function fetchAdmissionForms(course = '') {
+      const searchTerm = course.toLowerCase();
+      const forms = admissionForms.filter(form =>
+        form.course.toLowerCase().includes(searchTerm)
+      );
+      const admissionList = document.getElementById('admissionList');
+      admissionList.innerHTML = '';
 
-        if (forms.length === 0) {
-          admissionList.innerHTML = '<li>No admission forms found.</li>';
-        } else {
-          forms.forEach(form => {
-            const li = document.createElement('li');
-            li.innerHTML = `
-              <a href="/admission_pdfs/${form.filename}" download class="download-link">${form.course} - ${form.filename}</a>
-              <div class="course-name">Course: ${form.course}</div>
-            `;
-            admissionList.appendChild(li);
-          });
-        }
+      if (forms.length === 0) {
+        admissionList.innerHTML = '<li>No admission forms found.</li>';
+      } else {
+        forms.forEach(form => {
+          const li = document.createElement('li');
+          const link = document.createElement('a');
+          link.href = '../PDF/' + encodeURIComponent(form.filename);
+          link.download = form.filename;
+          link.className = 'download-link';
+          link.textContent = `${form.course} - ${form.filename}`;
+          li.appendChild(link);
 
-        document.getElementById('searchCount').textContent = `Showing ${forms.length} admission form(s)${course ? ' for "' + course + '"' : ''}`;
-      } catch (error) {
-        document.getElementById('searchCount').textContent = 'Error loading admission forms.';
-        console.error('Fetch error:', error);
+          const courseName = document.createElement('div');
+          courseName.className = 'course-name';
+          courseName.textContent = `Course: ${form.course}`;
+          li.appendChild(courseName);
+          admissionList.appendChild(li);
+        });
       }
+
+      document.getElementById('searchCount').textContent = `Showing ${forms.length} admission form(s)${course ? ' for "' + course + '"' : ''}`;
     }
 
     const searchInput = document.getElementById('courseSearch');
