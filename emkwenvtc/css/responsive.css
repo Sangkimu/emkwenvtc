@@ -1617,7 +1617,7 @@
     }
 
     .support-button .button {
-        display: none;
+		display: block !important;
     }
 
     .navigation .navbar .navbar-nav li {
