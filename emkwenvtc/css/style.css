@@ -1734,6 +1734,61 @@ p {
 
 
 /*=====================================================
+    12. PARTNER LOGO css 
+======================================================*/
+
+#patnar-logo .patnar-slied {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+#patnar-logo .slick-slide {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+#patnar-logo .singel-patnar {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    min-height: 120px;
+    padding: 15px;
+    margin: 0 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    -webkit-box-shadow: 0 0 0 1px rgba(2, 29, 58, 0.06);
+    box-shadow: 0 0 0 1px rgba(2, 29, 58, 0.06);
+}
+
+#patnar-logo .singel-patnar img {
+    display: block;
+    width: 100%;
+    max-width: 170px;
+    height: 80px;
+    -o-object-fit: contain;
+    object-fit: contain;
+    -webkit-filter: grayscale(0.1);
+    filter: grayscale(0.1);
+}
+
+/*=====================================================
     13. FOOTER css 
 ======================================================*/
 
