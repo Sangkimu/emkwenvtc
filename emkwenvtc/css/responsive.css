@@ -1378,18 +1378,23 @@
 
     .header-top .row {
         display: flex;
-        flex-wrap: nowrap;
+		flex-wrap: nowrap;
         align-items: center;
         margin-left: -6px;
         margin-right: -6px;
     }
 
     .header-top .col-lg-6 {
-        width: 50%;
-        flex: 0 0 50%;
+		width: 50%;
+		flex: 0 0 50%;
         padding-left: 6px;
         padding-right: 6px;
     }
+
+	.header-opening-time {
+		text-align: right !important;
+		overflow: hidden;
+	}
 
     .header-contact ul {
         display: flex;
@@ -1432,8 +1437,15 @@
 
     .header-opening-time p {
         margin: 0;
-        overflow: hidden;
-        text-overflow: clip;
+		overflow: hidden;
+		white-space: nowrap;
+		font-size: 0;
+		text-overflow: clip;
+	}
+
+	.header-opening-time p::after {
+		content: "Mon-Fri: 8 AM - 5 PM";
+		font-size: 9px;
     }
 
     /* Logo + support row: preserve the desktop arrangement */
