@@ -819,8 +819,11 @@
 	text-align: center;
 }
 .support-button .support{
-    padding-bottom: 20px;
+    padding-bottom: 12px;
     text-align: left;
+    display: block;
+    width: 100%;
+    max-width: 100%;
 }
 .support-button .support, .support-button .button {
 	margin-left: 0;
@@ -828,6 +831,26 @@
 	-webkit-box-pack: center;
 	-ms-flex-pack: center;
 	justify-content: center;
+}
+.support-button .support .cont {
+    margin-left: 0;
+    width: 100%;
+    white-space: normal;
+}
+.support-button .support .cont span {
+    display: block;
+    font-size: 12px;
+    line-height: 1.4;
+    word-break: break-word;
+}
+.support-button .button {
+    margin-top: 10px;
+}
+.support-button .mt-10 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
 }
 .slider-cont h1 {
 	font-size: 30px;

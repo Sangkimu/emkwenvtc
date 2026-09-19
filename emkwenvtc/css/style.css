@@ -505,10 +505,18 @@ p {
     color: #8fd3ff;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
+    word-break: break-word;
 }
 
 .support-button .button{
     margin-left: 60px;
+}
+
+.support-button .mt-10 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
 }
 
 /*===== Header Menu =====*/
