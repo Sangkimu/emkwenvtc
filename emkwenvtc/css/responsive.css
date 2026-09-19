@@ -1393,7 +1393,7 @@
 
 	.header-opening-time {
 		text-align: right !important;
-		overflow: hidden;
+		overflow: visible;
 	}
 
     .header-contact ul {
@@ -1432,20 +1432,22 @@
     .header-opening-time {
         text-align: right !important;
         white-space: nowrap;
-        overflow: hidden;
+		overflow: visible;
     }
 
     .header-opening-time p {
         margin: 0;
-		overflow: hidden;
+		overflow: visible;
 		white-space: nowrap;
 		font-size: 0;
-		text-overflow: clip;
+		line-height: 14px;
 	}
 
 	.header-opening-time p::after {
-		content: "Mon-Fri: 8 AM - 5 PM";
+		content: "8AM - 5PM";
+		display: inline-block;
 		font-size: 9px;
+		white-space: nowrap;
     }
 
     /* Logo + support row: preserve the desktop arrangement */
@@ -1521,10 +1523,13 @@
 	}
 
 	.support-button .mt-10 .btn {
+		flex: 1 1 auto;
+		min-width: 50px;
 		padding: 2px 5px;
 		font-size: 8px;
 		line-height: 13px;
 		white-space: nowrap;
+		text-align: center;
 	}
 
     .support-button .button .main-btn {
