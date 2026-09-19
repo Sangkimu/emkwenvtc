@@ -1432,23 +1432,31 @@
     .header-opening-time {
         text-align: right !important;
         white-space: nowrap;
-		overflow: visible;
+		overflow: hidden;
     }
 
     .header-opening-time p {
         margin: 0;
-		overflow: visible;
+		overflow: hidden;
 		white-space: nowrap;
 		font-size: 0;
 		line-height: 14px;
+		width: 100%;
 	}
 
 	.header-opening-time p::after {
-		content: "8AM - 5PM";
+		content: "Opening Hours: Monday to Friday - 8 AM to 5 PM";
 		display: inline-block;
 		font-size: 9px;
 		white-space: nowrap;
+		animation: mobile-opening-hours 13s linear infinite;
+		will-change: transform;
     }
+
+	@keyframes mobile-opening-hours {
+		0% { transform: translateX(100%); }
+		100% { transform: translateX(-100%); }
+	}
 
     /* Logo + support row: preserve the desktop arrangement */
     .header-logo-support {
