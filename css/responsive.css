@@ -1461,18 +1461,18 @@
     }
 
     .header-logo-support .col-lg-4.col-md-4 {
-        width: 42%;
-        flex: 0 0 42%;
+		width: 24%;
+		flex: 0 0 24%;
     }
 
     .header-logo-support .col-lg-8.col-md-8 {
-        width: 58%;
-        flex: 0 0 58%;
+		width: 76%;
+		flex: 0 0 76%;
     }
 
     .logo img {
-        width: 58px !important;
-        height: 58px !important;
+		width: 46px !important;
+		height: 46px !important;
         object-fit: contain;
     }
 
@@ -1487,35 +1487,45 @@
     .support-button .support {
         margin-top: 0;
         min-width: 0;
-        transform: scale(.82);
+		transform: none;
         transform-origin: right center;
     }
 
     .support-button .support .icon img {
-        width: 32px;
-        height: auto;
+		display: none;
     }
 
     .support-button .support .cont {
-        margin-left: 7px;
-        white-space: nowrap;
+		margin-left: 0;
+		white-space: nowrap;
     }
 
     .support-button .support .cont p {
-        font-size: 9px;
-        line-height: 12px;
+		display: none;
     }
 
     .support-button .support .cont span {
-        font-size: 13px;
-        line-height: 16px;
+		font-size: 10px;
+		line-height: 13px;
     }
 
     .support-button .button {
-        margin-left: 8px;
-        transform: scale(.72);
-        transform-origin: right center;
+		display: none;
     }
+
+	.support-button .mt-10 {
+		display: flex;
+		flex-wrap: nowrap;
+		gap: 3px;
+		margin-top: 3px !important;
+	}
+
+	.support-button .mt-10 .btn {
+		padding: 2px 5px;
+		font-size: 8px;
+		line-height: 13px;
+		white-space: nowrap;
+	}
 
     .support-button .button .main-btn {
         line-height: 38px;
@@ -1555,6 +1565,7 @@
         display: block;
         width: 100%;
         padding: 0;
+		overflow: hidden;
     }
 
     .navigation .navbar-toggler {
@@ -1652,7 +1663,7 @@
     }
 
     .support-button .button {
-		display: block !important;
+		display: none !important;
     }
 
     .navigation .navbar .navbar-nav li {
